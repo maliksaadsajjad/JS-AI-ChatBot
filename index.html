@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC Builder — Chat Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">💻</span>
+        <div>
+          <h1>PC Builder</h1>
+          <p class="subtitle">Your personal computer building assistant</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="recent-wrap">
+          <button type="button" id="recentBtn" class="ghost-btn" title="Open recent chats">Recent</button>
+          <div id="recentPanel" class="recent-panel hidden" role="dialog" aria-label="Recent chats">
+            <div class="recent-panel-head">
+              <span>Recent chats</span>
+              <button type="button" id="clearRecentBtn" class="link-btn">Clear</button>
+            </div>
+            <div id="recentList" class="recent-list"></div>
+          </div>
+        </div>
+        <button type="button" id="prefsBtn" class="ghost-btn" title="Show saved preferences">My prefs</button>
+        <button type="button" id="resetBtn" class="ghost-btn danger">Reset Chat</button>
+      </div>
+    </header>
+
+    <main class="chat-shell">
+      <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+
+      <div id="suggestionBar" class="suggestion-bar"></div>
+
+      <form id="chatForm" class="composer">
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Ask about builds, parts, budget, or compatibility..."
+          autocomplete="off"
+          maxlength="500"
+        />
+        <button type="submit" id="sendBtn" class="send-btn">Send</button>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <span>Local demo chatbot · No AI API · Data-driven recommendations</span>
+    </footer>
+  </div>
+
+  <!-- Data catalogs (order matters) -->
+  <script src="data/cpus.js"></script>
+  <script src="data/gpus.js"></script>
+  <script src="data/motherboard.js"></script>
+  <script src="data/ram.js"></script>
+  <script src="data/storage.js"></script>
+  <script src="data/psus.js"></script>
+  <script src="data/cases.js"></script>
+  <script src="data/coolers.js"></script>
+  <script src="data/best_picks.js"></script>
+  <script src="data/data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

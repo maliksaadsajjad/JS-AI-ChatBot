@@ -1,0 +1,66 @@
+const GPUs = [
+    // NVIDIA RTX 20
+    {id:"rtx-2060",name:"GeForce RTX 2060",brand:"NVIDIA",vram:6,tier:"low",recommendedPsu:500,perf1080p:3,perf1440p:2,price:170,goodFor:["gaming","streaming"],isFlagship:false,notes:"Entry RTX card; useful for 1080p builds"},
+    {id:"rtx-2060-super",name:"GeForce RTX 2060 SUPER",brand:"NVIDIA",vram:8,tier:"low",recommendedPsu:550,perf1080p:3,perf1440p:3,price:190,goodFor:["gaming","streaming"],isFlagship:false,notes:"Faster 8GB Turing option"},
+    {id:"rtx-2070",name:"GeForce RTX 2070",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:550,perf1080p:4,perf1440p:3,price:210,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Upper-midrange Turing card"},
+    {id:"rtx-2070-super",name:"GeForce RTX 2070 SUPER",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:550,perf1080p:4,perf1440p:3,price:230,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Strong 1440p-capable Turing card"},
+    {id:"rtx-2080",name:"GeForce RTX 2080",brand:"NVIDIA",vram:8,tier:"high",recommendedPsu:600,perf1080p:4,perf1440p:4,price:250,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"High-end Turing performance"},
+    {id:"rtx-2080-super",name:"GeForce RTX 2080 SUPER",brand:"NVIDIA",vram:8,tier:"high",recommendedPsu:650,perf1080p:5,perf1440p:4,price:280,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Fast 1440p Turing card"},
+    {id:"rtx-2080-ti",name:"GeForce RTX 2080 Ti",brand:"NVIDIA",vram:11,tier:"high",recommendedPsu:650,perf1080p:5,perf1440p:5,price:320,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Former Turing flagship"},
+  
+    // NVIDIA RTX 30
+    {id:"rtx-3050",name:"GeForce RTX 3050",brand:"NVIDIA",vram:8,tier:"low",recommendedPsu:450,perf1080p:3,perf1440p:2,price:170,goodFor:["gaming","streaming"],isFlagship:false,notes:"Entry Ampere RTX option"},
+    {id:"rtx-3060",name:"GeForce RTX 3060",brand:"NVIDIA",vram:12,tier:"low",recommendedPsu:550,perf1080p:4,perf1440p:3,price:230,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Popular 12GB 1080p/1440p card"},
+    {id:"rtx-3060-ti",name:"GeForce RTX 3060 Ti",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:600,perf1080p:5,perf1440p:4,price:250,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Strong value Ampere card"},
+    {id:"rtx-3070",name:"GeForce RTX 3070",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:4,price:300,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Strong 1440p gaming GPU"},
+    {id:"rtx-3070-ti",name:"GeForce RTX 3070 Ti",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:750,perf1080p:5,perf1440p:5,price:330,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Faster 3070 variant"},
+    {id:"rtx-3080",name:"GeForce RTX 3080",brand:"NVIDIA",vram:10,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:400,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"High-end Ampere gaming GPU"},
+    {id:"rtx-3080-ti",name:"GeForce RTX 3080 Ti",brand:"NVIDIA",vram:12,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:500,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Near-flagship Ampere GPU"},
+    {id:"rtx-3090",name:"GeForce RTX 3090",brand:"NVIDIA",vram:24,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:650,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"24GB Ampere workstation-class GPU"},
+    {id:"rtx-3090-ti",name:"GeForce RTX 3090 Ti",brand:"NVIDIA",vram:24,tier:"high",recommendedPsu:850,perf1080p:5,perf1440p:5,price:750,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Top-end RTX 30-series card"},
+  
+    // NVIDIA RTX 40
+    {id:"rtx-4060",name:"GeForce RTX 4060",brand:"NVIDIA",vram:8,tier:"low",recommendedPsu:550,perf1080p:4,perf1440p:3,price:300,goodFor:["gaming","streaming"],isFlagship:false,notes:"Efficient 1080p Ada GPU"},
+    {id:"rtx-4060-ti",name:"GeForce RTX 4060 Ti",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:550,perf1080p:4,perf1440p:3,price:390,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Efficient upper-mainstream Ada card"},
+    {id:"rtx-4070",name:"GeForce RTX 4070",brand:"NVIDIA",vram:12,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:5,price:550,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Excellent 1440p Ada GPU"},
+    {id:"rtx-4070-super",name:"GeForce RTX 4070 SUPER",brand:"NVIDIA",vram:12,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:5,price:600,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Very strong 1440p GPU"},
+    {id:"rtx-4070-ti",name:"GeForce RTX 4070 Ti",brand:"NVIDIA",vram:12,tier:"high",recommendedPsu:700,perf1080p:5,perf1440p:5,price:700,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"High-end Ada card"},
+    {id:"rtx-4070-ti-super",name:"GeForce RTX 4070 Ti SUPER",brand:"NVIDIA",vram:16,tier:"high",recommendedPsu:700,perf1080p:5,perf1440p:5,price:800,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"16GB high-end Ada card"},
+    {id:"rtx-4080",name:"GeForce RTX 4080",brand:"NVIDIA",vram:16,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,perf4k:5,price:1000,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Excellent 4K / high-refresh enthusiast Ada GPU"},
+    {id:"rtx-4080-super",name:"GeForce RTX 4080 SUPER",brand:"NVIDIA",vram:16,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,perf4k:5,price:1000,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Refined 4K-capable enthusiast Ada GPU"},
+    {id:"rtx-4090",name:"GeForce RTX 4090",brand:"NVIDIA",vram:24,tier:"high",recommendedPsu:850,perf1080p:5,perf1440p:5,perf4k:5,price:1600,goodFor:["gaming","streaming","editing"],isFlagship:true,notes:"True 4K flagship of the RTX 40-series"},
+  
+    // NVIDIA RTX 50
+    {id:"rtx-5050",name:"GeForce RTX 5050",brand:"NVIDIA",vram:8,tier:"low",recommendedPsu:550,perf1080p:4,perf1440p:3,price:250,goodFor:["gaming","streaming"],isFlagship:false,notes:"Entry RTX 50-series GPU"},
+    {id:"rtx-5060",name:"GeForce RTX 5060",brand:"NVIDIA",vram:8,tier:"mid",recommendedPsu:550,perf1080p:5,perf1440p:3,price:300,goodFor:["gaming","streaming"],isFlagship:false,notes:"Mainstream RTX 50-series GPU"},
+    {id:"rtx-5060-ti",name:"GeForce RTX 5060 Ti",brand:"NVIDIA",vram:16,tier:"mid",recommendedPsu:600,perf1080p:5,perf1440p:4,price:430,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"16GB mainstream RTX 50-series option"},
+    {id:"rtx-5070",name:"GeForce RTX 5070",brand:"NVIDIA",vram:12,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:5,price:550,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Strong upper-midrange RTX 50 GPU"},
+    {id:"rtx-5070-ti",name:"GeForce RTX 5070 Ti",brand:"NVIDIA",vram:16,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:750,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"High-end 16GB RTX 50-series GPU"},
+    {id:"rtx-5080",name:"GeForce RTX 5080",brand:"NVIDIA",vram:16,tier:"high",recommendedPsu:850,perf1080p:5,perf1440p:5,perf4k:5,price:1000,goodFor:["gaming","streaming","editing"],isFlagship:false,notes:"Strong 4K enthusiast RTX 50-series GPU"},
+    {id:"rtx-5090",name:"GeForce RTX 5090",brand:"NVIDIA",vram:32,tier:"high",recommendedPsu:1000,perf1080p:5,perf1440p:5,perf4k:5,price:2000,goodFor:["gaming","streaming","editing"],isFlagship:true,notes:"True 4K beast — RTX 50-series flagship"},
+  
+    // AMD equivalents / alternatives
+    {id:"rx-5600-xt",name:"Radeon RX 5600 XT",brand:"AMD",vram:6,tier:"low",recommendedPsu:500,perf1080p:3,perf1440p:2,price:160,goodFor:["gaming"],isFlagship:false,notes:"Older 1080p AMD alternative"},
+    {id:"rx-5700-xt",name:"Radeon RX 5700 XT",brand:"AMD",vram:8,tier:"mid",recommendedPsu:600,perf1080p:4,perf1440p:3,price:220,goodFor:["gaming"],isFlagship:false,notes:"Older high-value AMD 1440p option"},
+    {id:"rx-6600",name:"Radeon RX 6600",brand:"AMD",vram:8,tier:"low",recommendedPsu:450,perf1080p:4,perf1440p:3,price:190,goodFor:["gaming"],isFlagship:false,notes:"Efficient 1080p gaming GPU"},
+    {id:"rx-6600-xt",name:"Radeon RX 6600 XT",brand:"AMD",vram:8,tier:"low",recommendedPsu:500,perf1080p:4,perf1440p:3,price:220,goodFor:["gaming"],isFlagship:false,notes:"Fast 1080p AMD card"},
+    {id:"rx-6650-xt",name:"Radeon RX 6650 XT",brand:"AMD",vram:8,tier:"low",recommendedPsu:500,perf1080p:4,perf1440p:3,price:240,goodFor:["gaming"],isFlagship:false,notes:"High-value 1080p card"},
+    {id:"rx-6700-xt",name:"Radeon RX 6700 XT",brand:"AMD",vram:12,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:4,price:280,goodFor:["gaming"],isFlagship:false,notes:"Strong 12GB 1440p GPU"},
+    {id:"rx-6750-xt",name:"Radeon RX 6750 XT",brand:"AMD",vram:12,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:4,price:320,goodFor:["gaming"],isFlagship:false,notes:"Refreshed 6700 XT-class GPU"},
+    {id:"rx-6800",name:"Radeon RX 6800",brand:"AMD",vram:16,tier:"mid",recommendedPsu:650,perf1080p:5,perf1440p:5,price:350,goodFor:["gaming","editing"],isFlagship:false,notes:"16GB high-value 1440p card"},
+    {id:"rx-6800-xt",name:"Radeon RX 6800 XT",brand:"AMD",vram:16,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:400,goodFor:["gaming","editing"],isFlagship:false,notes:"High-end RDNA 2 card"},
+    {id:"rx-6900-xt",name:"Radeon RX 6900 XT",brand:"AMD",vram:16,tier:"high",recommendedPsu:850,perf1080p:5,perf1440p:5,price:500,goodFor:["gaming","editing"],isFlagship:false,notes:"Former AMD flagship"},
+    {id:"rx-6950-xt",name:"Radeon RX 6950 XT",brand:"AMD",vram:16,tier:"high",recommendedPsu:850,perf1080p:5,perf1440p:5,price:550,goodFor:["gaming","editing"],isFlagship:false,notes:"Fast refreshed RDNA 2 flagship-class card"},
+    {id:"rx-7600",name:"Radeon RX 7600",brand:"AMD",vram:8,tier:"low",recommendedPsu:550,perf1080p:4,perf1440p:3,price:270,goodFor:["gaming"],isFlagship:false,notes:"Mainstream RDNA 3 1080p GPU"},
+    {id:"rx-7600-xt",name:"Radeon RX 7600 XT",brand:"AMD",vram:16,tier:"mid",recommendedPsu:600,perf1080p:4,perf1440p:3,price:330,goodFor:["gaming"],isFlagship:false,notes:"16GB mainstream RDNA 3 card"},
+    {id:"rx-7700-xt",name:"Radeon RX 7700 XT",brand:"AMD",vram:12,tier:"mid",recommendedPsu:700,perf1080p:5,perf1440p:4,price:400,goodFor:["gaming"],isFlagship:false,notes:"Strong 1440p RDNA 3 card"},
+    {id:"rx-7800-xt",name:"Radeon RX 7800 XT",brand:"AMD",vram:16,tier:"high",recommendedPsu:700,perf1080p:5,perf1440p:5,price:480,goodFor:["gaming"],isFlagship:false,notes:"Excellent 16GB 1440p GPU"},
+    {id:"rx-7900-gre",name:"Radeon RX 7900 GRE",brand:"AMD",vram:16,tier:"high",recommendedPsu:700,perf1080p:5,perf1440p:5,price:550,goodFor:["gaming"],isFlagship:false,notes:"High-end 1440p RDNA 3 card"},
+    {id:"rx-7900-xt",name:"Radeon RX 7900 XT",brand:"AMD",vram:20,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:700,goodFor:["gaming","editing"],isFlagship:false,notes:"High-end 20GB RDNA 3 GPU"},
+    {id:"rx-7900-xtx",name:"Radeon RX 7900 XTX",brand:"AMD",vram:24,tier:"high",recommendedPsu:800,perf1080p:5,perf1440p:5,perf4k:5,price:900,goodFor:["gaming","editing"],isFlagship:true,notes:"AMD 4K flagship-class RDNA 3 GPU"},
+    {id:"rx-9060",name:"Radeon RX 9060",brand:"AMD",vram:8,tier:"low",recommendedPsu:500,perf1080p:4,perf1440p:3,price:300,goodFor:["gaming"],isFlagship:false,notes:"Mainstream newer-generation AMD GPU"},
+    {id:"rx-9060-xt-8gb",name:"Radeon RX 9060 XT 8GB",brand:"AMD",vram:8,tier:"mid",recommendedPsu:550,perf1080p:5,perf1440p:4,price:350,goodFor:["gaming"],isFlagship:false,notes:"Newer-generation 8GB AMD GPU"},
+    {id:"rx-9060-xt-16gb",name:"Radeon RX 9060 XT 16GB",brand:"AMD",vram:16,tier:"mid",recommendedPsu:600,perf1080p:5,perf1440p:4,price:400,goodFor:["gaming"],isFlagship:false,notes:"16GB newer-generation AMD GPU"},
+    {id:"rx-9070",name:"Radeon RX 9070",brand:"AMD",vram:16,tier:"high",recommendedPsu:650,perf1080p:5,perf1440p:5,price:550,goodFor:["gaming"],isFlagship:false,notes:"High-end newer-generation AMD GPU"},
+    {id:"rx-9070-xt",name:"Radeon RX 9070 XT",brand:"AMD",vram:16,tier:"high",recommendedPsu:750,perf1080p:5,perf1440p:5,price:650,goodFor:["gaming"],isFlagship:false,notes:"High-end 16GB newer-generation AMD GPU"}
+  ];
